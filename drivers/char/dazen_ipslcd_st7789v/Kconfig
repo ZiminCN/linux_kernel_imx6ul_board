@@ -1,0 +1,5 @@
+config DAZEN_IPSLCD_ST7789V
+    tristate  "dazen ipslcd_st7789v"
+    help
+    dazen ipslcd_st7789v help
+

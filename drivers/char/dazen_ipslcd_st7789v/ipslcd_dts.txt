@@ -1,0 +1,51 @@
+
+
+/* user */
+&ecspi3 {
+	fsl,spi-num-chipselects = <1>;
+	cs-gpio = <&gpio1 20 GPIO_ACTIVE_LOW>;  /* cant't use cs-gpios */
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_ecspi3>;
+	status = "okay";
+
+	ipslcd_device@0 {
+		compatible = "ipslcd-gpios";
+		spi-max-frequency = <32000000>;  /* 32MHz */
+		reg = <0>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_ipslcd_gpio>;
+		bits-per-pixel = <16>;
+		hactive = <240>;
+		vactive = <240>;
+		horizontal = <0>;
+
+		res-gpio = <&gpio1 3 GPIO_ACTIVE_LOW>;
+		dc-gpio = <&gpio1 4 GPIO_ACTIVE_LOW>;
+		cs-gpio = <&gpio1 5 GPIO_ACTIVE_LOW>;
+		blk-gpio = <&gpio1 8 GPIO_ACTIVE_LOW>;
+	};	
+};
+
+
+pinctrl_ecspi3: ecspi3-gpios {
+	fsl,pins = < 
+		MX6UL_PAD_UART2_TX_DATA__GPIO1_IO20		0x10b0	/* CS */
+		MX6UL_PAD_UART2_RX_DATA__ECSPI3_SCLK	0x10b1	/* SCLK */
+		MX6UL_PAD_UART2_RTS_B__ECSPI3_MISO		0x10b1	/* MISO */
+		MX6UL_PAD_UART2_CTS_B__ECSPI3_MOSI		0x10b1	/* MOSI */
+	>;
+};
+
+
+pinctrl_ipslcd_gpio: ipslcd-gpios {
+	fsl,pins = <
+		MX6UL_PAD_GPIO1_IO03__GPIO1_IO03	0x17059 /* RES */ 
+		MX6UL_PAD_GPIO1_IO04__GPIO1_IO04	0x17059 /* DC */
+		MX6UL_PAD_GPIO1_IO05__GPIO1_IO05	0x17059 /* CS */
+		MX6UL_PAD_GPIO1_IO08__GPIO1_IO08	0x17059 /* BLK */
+	>;
+};
+
+
+
+
