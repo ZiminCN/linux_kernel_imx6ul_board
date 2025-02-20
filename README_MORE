@@ -1,0 +1,13 @@
+
+if you run the 'bash zimin_board_build.sh' and report a error log such as:
+
+=> /usr/bin/ld: scripts/dtc/dtc-parser.tab.o:(.bss+0x50): multiple definition of `yylloc'; scripts/dtc/dtc-lexer.lex.o:(.bss+0x0): first defined here
+=> collect2: error: ld returned 1 exit status
+=> make[2]: *** [scripts/Makefile.host:100：scripts/dtc/dtc] 错误 1
+=> make[1]: *** [scripts/Makefile.build:403：scripts/dtc] 错误 2
+=> make: *** [Makefile:560：scripts] 错误 2
+=> make: *** 正在等待未完成的任务.... 
+
+please modified the file which name is 'dtc-lexer.lex.c', and find the line such as:
+"YYLTYPE yylloc;"
+modified it as "extern YYLTYPE yylloc;" and then re-run the 'bash zimin_board_build.sh'
