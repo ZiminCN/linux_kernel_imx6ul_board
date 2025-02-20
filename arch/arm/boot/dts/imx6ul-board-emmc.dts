@@ -41,7 +41,8 @@
 		pwms = <&pwm1 0 5000000>;
 		brightness-levels = <0 4 8 16 32 64 128 255>;
 		default-brightness-level = <6>;
-		status = "okay";
+		// status = "okay";
+		status = "disabled";
 	};
 
 	pxp_v4l2 {
@@ -163,9 +164,10 @@
 
 		user_led2{
 			label = "user-led2";
-			gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
+			gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;
+			// gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
 			linux,default-trigger = "user-led2";
-			default-state = "off";
+			default-state = "on";
 		};
 	};
 
@@ -177,9 +179,10 @@
 
 		heartbeat_led {
 			label = "sys-led";
-			gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;
+			// gpios = <&gpio1 2 GPIO_ACTIVE_HIGH>;
+			gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
 			linux,default-trigger = "heartbeat";
-			default-state = "off";
+			default-state = "on";
 		};
 	};
 };
@@ -261,6 +264,7 @@
 		clocks = <&clks IMX6UL_CLK_SAI2>;
 		clock-names = "mclk";
 		wlf,shared-lrclk;
+		status = "disabled";
 	};
 
 	ov5640: ov5640@3c {
@@ -284,13 +288,14 @@
 	};
 
 	goodix_ts@5d {
-    compatible = "goodix,gt9xx";
-    reg = <0x5d>;
-    status = "okay";
-    interrupt-parent = <&gpio1>;
-    interrupts = <9 0>;
-    pinctrl-0 = <&ts_int_pin
-		&ts_reset_pin>;
+		compatible = "goodix,gt9xx";
+		reg = <0x5d>;
+		// status = "okay";
+		status = "disabled";
+		interrupt-parent = <&gpio1>;
+		interrupts = <9 0>;
+		pinctrl-0 = <&ts_int_pin
+				&ts_reset_pin>;
 		goodix,rst-gpio = <&gpio5 9  GPIO_ACTIVE_LOW>;
 		goodix,irq-gpio = <&gpio1 9  GPIO_ACTIVE_LOW>;
 	};
@@ -685,7 +690,8 @@
 	pinctrl-0 = <&pinctrl_lcdif_dat
 		     &pinctrl_lcdif_ctrl>;
 	display = <&display0>;
-	status = "okay";
+	// status = "okay";
+	status = "disabled";
 
 	display0: display {
 		bits-per-pixel = <16>;
