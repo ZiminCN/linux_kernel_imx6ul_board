@@ -6,7 +6,7 @@
  * published by the Free Software Foundation.
  */
 
-#include "imx6ull-board.dts"
+#include "imx6ul-zimin-board-nand.dts"
 
 &usdhc2 {
 	pinctrl-names = "default", "state_100mhz", "state_200mhz";

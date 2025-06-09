@@ -396,7 +396,9 @@ dtb-$(CONFIG_SOC_IMX6UL) += \
 	imx6ul-9x9-evk.dtb \
 	imx6ul-9x9-evk-btwifi.dtb \
 	imx6ul-9x9-evk-csi.dtb \
-	imx6ul-9x9-evk-ldo.dtb
+	imx6ul-9x9-evk-ldo.dtb \
+	imx6ul-zimin-board-sd.dtb 
+
 dtb-$(CONFIG_SOC_IMX6ULL) += \
 	imx6ull-14x14-ddr3-arm2.dtb \
 	imx6ull-14x14-ddr3-arm2-adc.dtb \
@@ -421,7 +423,10 @@ dtb-$(CONFIG_SOC_IMX6ULL) += \
 	imx6ull-14x14-evk-usb-certi.dtb \
 	imx6ull-9x9-evk.dtb \
 	imx6ull-9x9-evk-btwifi.dtb \
-	imx6ull-9x9-evk-ldo.dtb
+	imx6ull-9x9-evk-ldo.dtb \
+	imx6ull-board-nand.dtb \
+	imx6ull-board.dtb 
+
 dtb-$(CONFIG_SOC_IMX6SLL) += \
 	imx6sll-lpddr2-arm2.dtb \
 	imx6sll-lpddr3-arm2.dtb \
